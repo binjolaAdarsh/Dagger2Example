@@ -1,5 +1,6 @@
 package com.app.daggerauth.ui.auth
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.app.daggerauth.R
 import com.app.daggerauth.models.User
+import com.app.daggerauth.ui.main.MainActivity
 import com.app.daggerauth.viewmodel.ViewModelProviderFactory
 import com.bumptech.glide.RequestManager
 import dagger.android.support.DaggerAppCompatActivity
@@ -53,6 +55,7 @@ class AuthActivity : DaggerAppCompatActivity() {
                         AuthStatus.ERROR -> {showProgressbar(false)}
                         AuthStatus.AUTHENTICATED -> {
                             showProgressbar(false)
+                            onLoginSuccess()
                             Log.d("TAG", "attemptLogin: ${it.data.toString()}")
 
                         }
@@ -68,5 +71,10 @@ private fun showProgressbar(flag:Boolean){
 }
     private fun setLogo() {
         requestManager.load(logo).into(login_logo)
+    }
+
+    fun onLoginSuccess(){
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }
