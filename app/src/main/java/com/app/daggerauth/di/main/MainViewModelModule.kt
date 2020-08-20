@@ -2,7 +2,7 @@ package com.app.daggerauth.di.main
 
 import androidx.lifecycle.ViewModel
 import com.app.daggerauth.di.ViewModelKey
-import com.app.daggerauth.ui.auth.AuthViewModel
+import com.app.daggerauth.ui.main.post.PostViewModel
 import com.app.daggerauth.ui.main.profile.ProfileViewModel
 import dagger.Binds
 import dagger.Module
@@ -14,4 +14,8 @@ abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     abstract fun bindProfileViewModel(viewModel: ProfileViewModel): ViewModel
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostViewModel::class)
+    abstract fun bindPostViewModel(viewModel: PostViewModel): ViewModel
 }
