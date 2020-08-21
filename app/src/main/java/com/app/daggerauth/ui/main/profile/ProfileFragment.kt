@@ -36,6 +36,7 @@ class ProfileFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, providerFactory)[ProfileViewModel::class.java]
+   subscribeObserver()
     }
 
     fun subscribeObserver() {
