@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.app.daggerauth.R
 import com.app.daggerauth.models.User
 import com.app.daggerauth.ui.auth.AuthResource
 import com.app.daggerauth.ui.auth.AuthStatus
@@ -28,7 +29,8 @@ class ProfileFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         Log.d("TAG", "onCreateView: profileFragment")
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_profile,container,false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
